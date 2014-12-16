@@ -1,11 +1,11 @@
 def group_by(items, &block)
-  result = nil
+  result = {}
   items.each do |item|
-    result ||= []
-    result[] << block.call(item)
+    result[block.call(item)] ||= []
+    result[block.call(item)] << item
   end
+  result
 end
-
 # ------ code above this line ------
 
 require 'rspec/autorun'
