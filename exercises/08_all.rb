@@ -21,9 +21,9 @@ RSpec.describe '#all?' do
     expect(all?([])).to eq(true)
   end
 
-  it 'returns true if all the elements are empty' do
+  it 'returns true if all the elements are falsey' do
     input = ['', nil, nil]
-    
+
     expect(all?(input) { |word| !word.nil? && !word.empty? }).to eq(true)
   end
 end
