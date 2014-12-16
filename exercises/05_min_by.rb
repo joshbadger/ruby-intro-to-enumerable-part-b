@@ -1,4 +1,16 @@
 def min_by(items, &block)
+  min = nil
+  count = nil
+  items.each do |item|
+    count ||= block.call(item)
+    min ||= item
+    
+    if block.call(item) < count
+      min = item
+      count = block.call(item)
+    end
+  end
+  min
 end
 
 # ------ code above this line ------

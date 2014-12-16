@@ -1,4 +1,9 @@
 def select(items, &block)
+  selection = []
+  items.each do |item|
+    selection << item if block.call(item)
+  end
+  selection
 end
 
 # ------ code above this line ------

@@ -1,4 +1,13 @@
 def max_by(items, &block)
+  max = nil
+  count = 0
+  items.each do |item|
+    if block.call(item) > count
+      max = item
+      count = block.call(item)
+    end
+  end
+  max
 end
 
 # ------ code above this line ------
